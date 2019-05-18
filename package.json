@@ -1,0 +1,19 @@
+{
+  "name": "blog_pics",
+  "version": "1.0.0",
+  "description": "blog images provider based on sm.ms",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dandan1314/Blog_Pics.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dandan1314/Blog_Pics/issues"
+  },
+  "homepage": "https://github.com/Dandan1314/Blog_Pics#readme"
+}
