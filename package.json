@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Dandan1314/Blog_Pics/issues"
   },
-  "homepage": "https://github.com/Dandan1314/Blog_Pics#readme"
+  "homepage": "https://github.com/Dandan1314/Blog_Pics#readme",
+  "dependencies": {
+    "@eggjs/router": "git+https://github.com/eggjs/egg-router.git",
+    "koa": "^2.7.0"
+  }
 }
