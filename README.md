@@ -56,7 +56,6 @@ http://localhost:4832/2019/06/06/5cf8ab8ceeaf169784.jpg
 ```
 同理，在图床程序异常时，可以通过部署到一台主机实现临时的图片加载
 
----
 ## 接口文档
 ### 1. 上传图片
 #### 1.1 功能描述
@@ -122,8 +121,6 @@ fileName    |String     |图片名，即上传到smms返回的storename
 ```
 如果有上传失败，根据控制台报错信息进行处理
 
----
-
 ## HEXO配置方式
 1.  在HEXO根目录_config.yml 添加 img_path: 'https://i.loli.net'配置项，用于指定图片地址
 2. 在模版的scripts目录下（不存在这个目录新建一个），创建siteUrl.js，内容如下
@@ -138,8 +135,6 @@ fileName    |String     |图片名，即上传到smms返回的storename
 4. 复制上传返回的 "hexoUrl" 即 {% img_path /2019/06/06/5cf8ab8ceeaf169784.jpg %}
 4. 可以通过配置第三个和第四个参数的方式，控制图片宽高
 5. 在要插入图片的位置粘贴
-
----
 
 ## 参考资料
 > [Upload Api Document](https://sm.ms/doc/)
