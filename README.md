@@ -122,7 +122,7 @@ fileName    |String     |图片名，即上传到smms返回的storename
 如果有上传失败，根据控制台报错信息进行处理
 
 ## HEXO配置方式
-1.  在HEXO根目录_config.yml 添加 img_path: 'https://i.loli.net'配置项，用于指定图片地址
+1.  在HEXO根目录_config.yml 添加 ```img_path: 'https://i.loli.net'```配置项，用于指定图片地址
 2. 在模版的scripts目录下（不存在这个目录新建一个），创建siteUrl.js，内容如下
     ```javascript
     'use strict';
