@@ -124,13 +124,13 @@ fileName    |String     |图片名，即上传到smms返回的storename
 ## HEXO配置方式
 1.  在HEXO根目录_config.yml 添加 ```img_path: 'https://i.loli.net'```配置项，用于指定图片地址
 2. 在模版的scripts目录下（不存在这个目录新建一个），创建siteUrl.js，内容如下
-    ```javascript
-    'use strict';
-    const config = hexo.config;
-    hexo.extend.tag.register('img_path', function (args) {
-        return `<img src="${config.img_path + args[0]}" style="margin: 6px 0;width:${args[1] ? args[1]+'px' : "auto"};height:${args[2] ? args[2]+'px' : 'auto'}"/>`;
-    });
-    ```
+```javascript
+'use strict';
+const config = hexo.config;
+hexo.extend.tag.register('img_path', function (args) {
+    return `<img src="${config.img_path + args[0]}" style="margin: 6px 0;width:${args[1] ? args[1]+'px' : "auto"};height:${args[2] ? args[2]+'px' : 'auto'}"/>`;
+});
+```
 3. 更新模版，清理HEXO并重新生成
 4. 复制上传返回的 "hexoUrl" 即 {% img_path /2019/06/06/5cf8ab8ceeaf169784.jpg %}
 4. 可以通过配置第三个和第四个参数的方式，控制图片宽高
