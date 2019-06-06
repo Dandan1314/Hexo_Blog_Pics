@@ -4,7 +4,7 @@
   "description": "blog images provider based on sm.ms",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon src/server"
+    "start": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "koa-static": "^5.0.0",
     "mongoose": "^5.5.13",
     "nodemon": "^1.19.0",
+    "qiniu": "^7.2.1",
     "request": "^2.88.0",
     "tunnel-agent": "git+https://github.com/Hamper/tunnel-agent.git"
   }

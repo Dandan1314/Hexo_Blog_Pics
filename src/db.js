@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const connectUrl = 'mongodb://127.0.0.1:12345/Blog_Pic'
+const { mongoose_ConnectString } = require('../config')
 
-mongoose.connect(connectUrl, { useNewUrlParser: true })
+mongoose.connect(mongoose_ConnectString, { useNewUrlParser: true })
 
 // 数据库状态
 const db = mongoose.connection;

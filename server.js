@@ -1,8 +1,9 @@
 const koa = require('koa')
 const app = new koa()
 const koaBody = require('koa-body')
-const route = require('./router')
+const route = require('./src/router')
 const static = require('koa-static')
+const { static_Dir } = require('./config')
 
 app
     .use(koaBody({
@@ -14,7 +15,7 @@ app
     }))
     .use(route.routes())
     .use(route.allowedMethods())
-    .use(static('upload'))
+    .use(static(static_Dir))
     .listen(4832, () => {
         console.log('图床程序启动成功！')
     })
