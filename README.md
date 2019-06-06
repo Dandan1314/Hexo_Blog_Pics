@@ -42,17 +42,17 @@ qiniu_Bucket | 七牛存储空间名
 
 ## 程序部署
 ```bash
-    git clone git@github.com:Dandan1314/Blog_Pics.git
-    cd Blog_Pics
-    yarn
+git clone git@github.com:Dandan1314/Blog_Pics.git
+cd Blog_Pics
+yarn
 ```
 修改配置文件之后启动程序，默认监听4832端口
 ```bash
-    yarn start
+yarn start
 ```
 程序启动后，可以根据直接访问静态资源目录的方式来访问本地文件
 ```url
-    例： http://localhost:4832/2019/06/06/5cf8ab8ceeaf169784.jpg
+http://localhost:4832/2019/06/06/5cf8ab8ceeaf169784.jpg
 ```
 同理，在图床程序异常时，可以通过部署到一台主机实现临时的图片加载
 
