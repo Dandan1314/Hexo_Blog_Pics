@@ -63,7 +63,7 @@ http://localhost:4832/2019/06/06/5cf8ab8ceeaf169784.jpg
 #### 1.2 请求说明
 > PUT
 >
-> 请求URL ：[/upload](#) 
+> 请求URL ：```/upload```
 
 #### 1.3 请求参数
 字段         |字段类型    |字段说明
@@ -107,7 +107,7 @@ hexoUrl    |Object | 在HEXO中添加的图片信息
 #### 2.2 请求说明
 > DELETE
 >
-> 请求URL ：[/delImg/:fileName](#) 
+> 请求URL ：```/delImg/:fileName```
 
 #### 2.3 请求参数
 字段         |字段类型    |字段说明
