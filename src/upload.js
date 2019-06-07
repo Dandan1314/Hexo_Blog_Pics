@@ -4,10 +4,22 @@ const BlogPic = require('./db')
 const smmsUpload = require('./smmsUpload')
 const qiniuUpload = require('./qiniuUpload')
 const { static_Dir } = require('../config')
+const imagemin = require('imagemin');
+const imageminJpegtran = require('imagemin-jpegtran');
+const imageminPngquant = require('imagemin-pngquant');
 
 module.exports = async (ctx, next) => {
     const files = ctx.request.files
     const file = files['file']
+    // 压缩图片
+    await imagemin([file.path], 'tmp', {
+		plugins: [
+			imageminJpegtran(),
+			imageminPngquant({
+				quality: [0.4, 0.6]
+			})
+		]
+    });
     // 获取到文件之后进行上传操作
     const uploadFileRes = JSON.parse(await smmsUpload(file))
     const data = uploadFileRes.data;
@@ -34,6 +46,13 @@ module.exports = async (ctx, next) => {
                 hexoUrl : `{% img_path ${data.path} %}`
             }
         }
+        fs.unlink(file.path, (err, res) => {
+            if(!err) {
+                console.log('临时文件删除成功。');
+            } else {
+                console.log('临时文件删除失败，请手动清空tmp目录。')
+            }
+        })
     } else {
         ctx.body = uploadFileRes
     }

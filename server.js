@@ -10,7 +10,10 @@ app
         multipart: true,
         formLimit: '10mb',
         formidable: {
-            maxFileSize: 20000 * 1024 * 1024
+            maxFileSize: 20000 * 1024 * 1024,
+            encoding: 'utf-8',
+            uploadDir: 'tmp',
+            keepExtensions: true
         }
     }))
     .use(route.routes())
