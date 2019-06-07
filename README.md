@@ -43,10 +43,10 @@ qiniu_Bucket | 七牛存储空间名
 qiniu_Zone   | 七牛云存储机房
 
 其中，机房对应的对象如下：
-- 华东 qiniu.zone.Zone_z0
-- 华北 qiniu.zone.Zone_z1
-- 华南 qiniu.zone.Zone_z2
-- 北美 qiniu.zone.Zone_na0
+- 华东 Zone_z0
+- 华北 Zone_z1
+- 华南 Zone_z2
+- 北美 Zone_na0
 
 ## 程序部署
 ```bash
