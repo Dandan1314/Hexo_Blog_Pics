@@ -39,6 +39,7 @@ mongoose_ConnectString | MongoDB连接串
 qiniu_AccessKey | 七牛开发者AccessKey
 qiniu_SecretKey | 七牛开发者SecretKey
 qiniu_Bucket | 七牛存储空间名
+qiniu_Zone   | 七牛云存储位置
 
 ## 程序部署
 ```bash
