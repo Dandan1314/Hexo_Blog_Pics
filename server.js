@@ -2,8 +2,9 @@ const koa = require('koa')
 const app = new koa()
 const koaBody = require('koa-body')
 const route = require('./src/router')
+const cors = require('koa2-cors')
 const static = require('koa-static')
-const { static_Dir } = require('./config')
+const { static_Dir, website_Domain } = require('./config')
 
 app
     .use(koaBody({
@@ -16,8 +17,13 @@ app
             keepExtensions: true
         }
     }))
+    .use(cors({
+        origin: website_Domain && [],
+        credentials: true,
+        allowMethods: ['GET', 'PUT', 'DELETE'],
+        allowHeaders: ['Content-Type', 'Authorization', 'Accept']
+    }))
     .use(route.routes())
-    .use(route.allowedMethods())
     .use(static(static_Dir))
     .listen(4832, () => {
         console.log('图床程序启动成功！')

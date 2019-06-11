@@ -2,7 +2,7 @@ const BlogPic = require('./db')
 const request = require('request')
 const { bucketManager } = require('./qiniuAuth')
 const fs = require('fs')
-const { static_Dir, qiniu_Bucket } = require('../config')
+const { static_Dir, control_String, qiniu_Bucket } = require('../config')
 
 const deleteSmms = async (delUrl) => new Promise((resolve, reject) => {
     request.get({
@@ -37,6 +37,13 @@ const delLocalFile = async filePath => new Promise((resolve, reject) => {
 })
 
 module.exports = async (ctx, next) => {
+    const controlString = ctx.params.controlString
+    if(controlString !== control_String) {
+        ctx.status = 403
+        return ctx.body = {
+            error: '非法操作'
+        }
+    }
     const picName = ctx.params.picName
     if (!picName) {
         return ctx.body = {

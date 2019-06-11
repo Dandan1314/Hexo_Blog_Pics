@@ -25,6 +25,8 @@
 ```js
 module.exports = {
     static_Dir: 'upload',
+    control_String: '',
+    website_Domain: [],
     mongoose_ConnectString: 'mongodb://127.0.0.1:12345/Blog_Pic',
     qiniu_AccessKey: '',
     qiniu_SecretKey: '',
@@ -33,14 +35,16 @@ module.exports = {
 }
 ```
 
-配置项 | 对应功能
------- | ------
-static_Dir | 静态资源目录，本地上传的目录
-mongoose_ConnectString | MongoDB连接串
-qiniu_AccessKey | 七牛开发者AccessKey
-qiniu_SecretKey | 七牛开发者SecretKey
-qiniu_Bucket | 七牛存储空间名
-qiniu_Zone   | 七牛云存储机房
+| 配置项                 | 类型   | 对应功能                               |
+| ---------------------- | ------ | -------------------------------------- |
+| static_Dir             | String | 静态资源目录，本地上传的目录           |
+| mongoose_ConnectString | String | MongoDB连接串                          |
+| control_String         | String | 操作验证字符串，用于上传和删除时做验证 |
+| website_Domain         | Array  | 网站域名，用于服务器部署时的跨域处理   |
+| qiniu_AccessKey        | String | 七牛开发者AccessKey                    |
+| qiniu_SecretKey        | String | 七牛开发者SecretKey                    |
+| qiniu_Bucket           | String | 七牛存储空间名                         |
+| qiniu_Zone             | String | 七牛云存储机房                         |
 
 其中，机房对应的对象如下：
 - 华东 Zone_z0
@@ -74,9 +78,10 @@ http://localhost:4832/2019/06/06/5cf8ab8ceeaf169784.jpg
 > 请求URL ：```/upload```
 
 #### 1.3 请求参数
-字段         |字段类型    |字段说明
-------------|-----------|-----------
-file    |File     |要上传的图片
+| 字段          | 字段类型 | 字段说明                            |
+| ------------- | -------- | ----------------------------------- |
+| file          | File     | 要上传的图片                        |
+| controlString | String   | config.js配置文件中的操作验证字符串 |
 #### 1.4 返回结果
 ```json  
 {
@@ -103,11 +108,11 @@ file    |File     |要上传的图片
 }
 ```
 #### 1.5 返回参数
-字段         |字段类型    |字段说明
-------------|-----------|-----------
-createPicRes      |Object     |上传到SMMS返回的结果
-qiniuUploadRes        |Object        |上传到七牛返回的结果
-hexoUrl    |Object | 在HEXO中添加的图片信息
+| 字段           | 字段类型 | 字段说明               |
+| -------------- | -------- | ---------------------- |
+| createPicRes   | Object   | 上传到SMMS返回的结果   |
+| qiniuUploadRes | Object   | 上传到七牛返回的结果   |
+| hexoUrl        | Object   | 在HEXO中添加的图片信息 |
 
 ### 2. 删除图片
 #### 2.1 功能描述
@@ -115,12 +120,13 @@ hexoUrl    |Object | 在HEXO中添加的图片信息
 #### 2.2 请求说明
 > DELETE
 >
-> 请求URL ：```/delImg/:fileName```
+> 请求URL ：```/delImg/:controlString/:fileName```
 
 #### 2.3 请求参数
-字段         |字段类型    |字段说明
-------------|-----------|-----------
-fileName    |String     |图片名，即上传到smms返回的storename
+| 字段          | 字段类型 | 字段说明                            |
+| ------------- | -------- | ----------------------------------- |
+| fileName      | String   | 图片名，即上传到smms返回的storename |
+| controlString | String   | config.js配置文件中的操作验证字符串 |
 #### 2.4 返回结果
 ```json  
 {

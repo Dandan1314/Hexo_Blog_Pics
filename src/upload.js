@@ -3,12 +3,19 @@ const path = require('path')
 const BlogPic = require('./db')
 const smmsUpload = require('./smmsUpload')
 const qiniuUpload = require('./qiniuUpload')
-const { static_Dir } = require('../config')
+const { static_Dir, control_String } = require('../config')
 const imagemin = require('imagemin');
 const imageminJpegtran = require('imagemin-jpegtran');
 const imageminPngquant = require('imagemin-pngquant');
 
 module.exports = async (ctx, next) => {
+    const controlString = ctx.request.body.controlString
+    if(controlString !== control_String) {
+        ctx.status = 403
+        return ctx.body = {
+            error: '非法操作'
+        }
+    }
     const files = ctx.request.files
     const file = files['file']
     // 压缩图片

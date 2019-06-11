@@ -5,6 +5,6 @@ const delPic = require('./delPic')
 
 router.put('/upload', upload);
 
-router.delete('/delImg/:picName', delPic)
+router.delete('/delImg/:controlString/:picName', delPic)
 
 module.exports = router
